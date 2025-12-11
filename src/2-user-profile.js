@@ -4,8 +4,8 @@ const createUser = (username, email) => {
     username,
     email,
     isActive: true,
-    loginCount: 0
-  }
+    loginCount: 0,
+  };
 };
 
 // Increase the user's loginCount by 1
@@ -27,12 +27,12 @@ const printUserInfo = (user) => {
 
   userKeys.forEach((key) => {
     console.log(`${key}: ${user[key]}`);
-  })
+  });
 };
 
 // BONUS: Return a true copy of the user object (not a reference)
 const cloneUser = (user) => {
-  return { ...user};
+  return { ...user };
 };
 
 module.exports = {
