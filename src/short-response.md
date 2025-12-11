@@ -1,6 +1,7 @@
 # Short Responses
 
 For this assessment, aim to write a response with the following qualities:
+
 - [ ] Addresses all parts of the prompt
 - [ ] Accurately uses relevant technical terminology
 - [ ] Is free of grammar and spelling mistakes
@@ -26,7 +27,7 @@ const getLetterGrade = (score) => {
   }
 
   return "Your grade is: " + letter;
-}
+};
 
 console.log(getLetterGrade(95)); // This should print "Your grade is: A"
 console.log(getLetterGrade(82)); // This should print "Your grade is: B"
@@ -42,11 +43,11 @@ console.log(getLetterGrade(65)); // This should print "Your grade is: F"
 
 **Part A:**
 
-Your response...
+The **bug** occurs because inside of each `if/else` **block** we are initializing a new **variable** `letter` using the `let` **keyword**, instead of **reassigning** the value of the already initialized `letter` variable. So since no value is ever assigned to `letter` inside the **execution context** of the `getLetterGrade` function, `undefined` is returned.
 
 **Part B:**
 
-Your response...
+Removing the `let` keyword inside all `if/else` statements, this would reassigning a value to our `letter` variable instead of initializing a new one, hence **returning** the new assigned value instead of `undefined`.
 
 ---
 
@@ -69,18 +70,18 @@ console.log(originalSettings.volume);
 
 **Part A:**
 
-Your response...
+The number `75` will be **logged** to the **console**, this will happen because on the second line of code `const newSettings = originalSettings;` we are passing the reference of the `originalSettings` object to `newSettings`, so they are both pointing to the same space in memory.
 
 **Part B:**
 
-Your response...
-
 **Corrected Code:**
+
+Using the **spread operator** we can create a new object containing the same properties as `originalSettings` while referencing a different space in memory.
 
 ```js
 // Fix this code so newSettings is a true copy
 const originalSettings = { volume: 50, brightness: 80 };
-const newSettings = originalSettings;
+const newSettings = { ...originalSettings };
 newSettings.volume = 75;
 console.log(originalSettings.volume);
 ```
@@ -90,6 +91,7 @@ console.log(originalSettings.volume);
 ## Prompt 3
 
 Given this array of products and the code using `filter`:
+
 ```js
 const products = [
   { name: "Laptop", price: 1000, inStock: true },
@@ -99,15 +101,16 @@ const products = [
 ];
 
 const itemsInStock = products.filter((product) => {
-  return product.inStock
+  return product.inStock;
 });
 ```
 
 Walk through what happens in the first iteration of filter:
+
 - What is the value of `product`?
 - What gets returned from the callback?
 - What happens with that returned value?
 
 ### Response 3
 
-Your response...
+In the first **iteration** of `filter`, the value of `product` would be the first **object** inside the `products` **array**. The **callback function** is returning the `product.inStock` **property** which is a **boolean**, if this property evaluates to `true` it will **pass** the test and the `filter` **method** will add the `product` object to the new filtered array.
